@@ -128,13 +128,6 @@ classdef AskAI < handle
             app.TopLevelGridLayout.Padding = [10 10 10 10];
             app.TopLevelGridLayout.BackgroundColor = parent.BackgroundColor; 
 
-            % 2. Create Image (Row 1)
-            app.Image = uiimage(app.TopLevelGridLayout);
-            app.Image.Layout.Row = 1;
-            app.Image.Layout.Column = 1;
-            app.Image.ImageSource = fullfile(pathToMLAPP, 'college-be-logo-eng.png');
-            app.Image.BackgroundColor = app.TopLevelGridLayout.BackgroundColor;
-
             % 3. Create AskAIPanel (Row 2)
             app.AskAIPanel = uipanel(app.TopLevelGridLayout);
             app.AskAIPanel.TitlePosition = 'centertop';
@@ -160,7 +153,7 @@ classdef AskAI < handle
             app.AiResponse.Layout.Column = [1 2];
             app.AiResponse.Editable = 'off';
             % Set initial welcome message
-            app.AiResponse.Value = "AI Tutor: Welcome! Ask me any question about Electrical or Computer Engineering.";
+            app.AiResponse.Value = "AI Tutor: Welcome! Ask me any question(s) you have about navigating the ECE ITS Companion.";
             app.AiResponse.FontSize = 12;
             app.AiResponse.BackgroundColor = [0.96 0.96 0.96]; 
 
