@@ -1,4 +1,0 @@
-Student: What is a resistor?
-AI Tutor: Error: Request failed (The server returned the status 400 with message "Bad Request" in response to the request to URL https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyCK_mzSyfbegj89PU0izJx7cZaWSoauhpA.). Check API key or network connection.
-Student: 
-AI Tutor: Error: Request failed (The server returned the status 400 with message "Bad Request" in response to the request to URL https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=AIzaSyCK_mzSyfbegj89PU0izJx7cZaWSoauhpA.). Check API key or network connection.
