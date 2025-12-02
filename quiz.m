@@ -1,32 +1,34 @@
 classdef quiz < handle
     properties
-        MainApp
+        
+        MainAppHandle
+        
         numQuestions
-        timed logical
-        difficulty string
-        questions struct   % array of structs: {question, answer, choices}
-        currentIndex = 1
-        score = 0
-        startTime datetime
-        AIHelper          % reference to AI class
-        Main
+        timed
+        difficulty
+
     end
 
     methods
+  
         function obj = Quiz(aiHelper)
             obj.AIHelper = aiHelper;
         end
 
         function setMainApp(app, mainAppHandle)
-            app.MainApp = mainAppHandle;
+            app.MainAppHandle = mainAppHandle;
         end
 
         function launchQuiz(app)
-    % Ensure AIAppHandle is valid
-    if isempty(app.MainApp.AIAppHandle) || ~isvalid(app.MainApp.AIAppHandle)
-        error('AI app not available.');
-    end
+        
+            % Ensure AIAppHandle is valid
+        if isempty(app.MainApp.AIAppHandle) || ~isvalid(app.MainApp.AIAppHandle)
+            error('AI app not available.');
+        end
     
+        % Store mode so next input goes to quiz configuration
+        app.MainApp.AIAppHandle.toggleMode("QUIZ"); 
+
     % --- Step 1: Ask for quiz length ---
     lengthPrompt = [
         "How long would you like the quiz to be?" + newline + ...
@@ -34,19 +36,9 @@ classdef quiz < handle
         "2) Medium (10 questions)" + newline + ...
         "3) Long (15 questions)"
     ];
-    app.MainApp.AIAppHandle.postMessage(lengthPrompt);
-    
-    % Store mode so next input goes to quiz configuration
-    app.MainApp.AIAppHandle.toggleMode("QUIZ");  
-    app.MainApp.AIAppHandle.nextQuizStep = "length";  
+    app.MainApp.AIAppHandle.postMessage(lengthPrompt); 
 
-    % --- Step 2: Ask if they want it timed ---
-    % This will be triggered after length is selected
-    % Use nextQuizStep = 'timed' after handling length
-    % Example message:
-    timedPrompt = "Do you want the quiz to be timed? Enter Yes or No.";
-    app.MainApp.AIAppHandle.nextQuizStepMessage.timed = timedPrompt;
-    
+   app.MainApp.AIAppHandle.postMessage("TEST");
     % --- Step 3: Ask for difficulty ---
     difficultyPrompt = [
         "Select the difficulty level:" + newline + ...
