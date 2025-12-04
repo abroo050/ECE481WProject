@@ -7,8 +7,6 @@ classdef quiz < handle
         timed
         difficulty
 
-        
-
     end
 
     methods
@@ -20,8 +18,8 @@ classdef quiz < handle
         function setMainApp(app, mainAppHandle)
             app.MainAppHandle = mainAppHandle;
         end
- 
-        function launchQuiz(app, userInput)
+
+        function launchQuiz(app)
 
     % --- Step 1: Ask for quiz length ---
     lengthPrompt = [
@@ -30,8 +28,6 @@ classdef quiz < handle
         "2) Medium (10 questions)" + newline + ...
         "3) Long (15 questions)"
     ];
-
-    app.MainAppHandle
     app.MainAppHandle.AIAppHandle.postMessage(lengthPrompt); 
 
    app.MainAppHandle.AIAppHandle.postMessage("TEST");
